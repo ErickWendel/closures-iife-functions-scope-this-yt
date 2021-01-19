@@ -69,10 +69,7 @@
 
         iniciar() {
             console.log('iniciou!')
-            const elementoBotao = document.getElementById(BTN_REINICIAR)
-            const desabilitarBotao = this.prepararBotao(elementoBotao, this.iniciar)
-            desabilitarBotao()
-
+            // 1o
             const executarEmCada = PERIODO_INTERVALO
             const elementoContador = document.getElementById(ID_CONTADOR)
 
@@ -84,6 +81,14 @@
 
 
             {
+                // 3o
+                const elementoBotao = document.getElementById(BTN_REINICIAR)
+                const desabilitarBotao = this.prepararBotao(elementoBotao, this.iniciar)
+                desabilitarBotao()
+
+                // 2o
+                // const desabilitarBotao = () => { console.log('parou!') }
+
                 const argumentos = { elementoContador, idDoIntervalo }
                 const pararContadorFn = this.agendarParadaContador.apply({ desabilitarBotao }, [argumentos])
                 contador.efetuarParada = pararContadorFn
